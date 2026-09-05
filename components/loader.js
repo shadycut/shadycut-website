@@ -14,6 +14,61 @@ Promise.all([
   const toggle = header?.querySelector('.menu-toggle');
   const panel = header?.querySelector('.mobile-menu-panel');
   const nav = panel?.querySelector('nav');
+
+  // Navigation targets do not exist yet: keep the links inert instead of routing nowhere.
+  header?.querySelectorAll('[data-nav-placeholder]').forEach((link) => {
+    link.addEventListener('click', (event) => event.preventDefault());
+  });
+
+  // Desktop dropdowns. CSS handles hover and focus on its own; this adds a grace period on the way
+  // out so a slow diagonal move towards the panel does not close it, plus click and Escape.
+  const triggers = Array.from(header?.querySelectorAll('.nav-trigger') ?? []);
+  const CLOSE_DELAY = 260;
+  let closeTimer;
+  const setOpen = (trigger, open) => {
+    trigger.setAttribute('aria-expanded', String(open));
+    trigger.closest('.nav-item')?.classList.toggle('is-open', open);
+  };
+  const closeDropdowns = (except) => triggers.forEach((trigger) => {
+    if (trigger !== except) setOpen(trigger, false);
+  });
+  triggers.forEach((trigger) => {
+    const item = trigger.closest('.nav-item');
+    trigger.addEventListener('click', () => {
+      const open = trigger.getAttribute('aria-expanded') !== 'true';
+      closeDropdowns(trigger);
+      setOpen(trigger, open);
+    });
+    if (!item) return;
+    item.addEventListener('mouseenter', () => {
+      window.clearTimeout(closeTimer);
+      closeDropdowns(trigger);
+      setOpen(trigger, true);
+    });
+    item.addEventListener('mouseleave', () => {
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(() => {
+        if (!item.matches(':hover') && !item.contains(document.activeElement)) setOpen(trigger, false);
+      }, CLOSE_DELAY);
+    });
+  });
+  if (triggers.length) {
+    document.addEventListener('click', (event) => {
+      if (!header.contains(event.target)) closeDropdowns();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      const open = triggers.find((trigger) => trigger.getAttribute('aria-expanded') === 'true');
+      closeDropdowns();
+      if (open) open.focus();
+    });
+    header.addEventListener('focusout', () => {
+      window.requestAnimationFrame(() => {
+        if (!header.contains(document.activeElement)) closeDropdowns();
+      });
+    });
+  }
+
   if (!toggle || !panel || !nav) return;
   toggle.addEventListener('click', () => {
     const open = header.classList.toggle('menu-open');
