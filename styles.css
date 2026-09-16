@@ -73,7 +73,9 @@ nav a:focus-visible {
   max-width: none;
   width: 100%;
   padding: 30px max(20px, calc((100% - 1180px)/2)) 90px;
-  background: url("assets/home-hero-bg.png") center top/cover no-repeat;
+  /* Image intentionally none: the later .hero rule supplies the banner.
+     The position/size/repeat values below still apply to it. */
+  background: none center top/cover no-repeat;
 }
 
 :root {
@@ -2158,6 +2160,10 @@ footer {
   gap: 10px;
 }
 
+picture {
+  display: contents;
+}
+
 .brand-fox {
   width: auto;
   height: 36px;
@@ -2365,6 +2371,24 @@ footer {
   color: #f0edf4;
   font-size: 22px;
   line-height: 1.68;
+}
+
+.case-study-permission-note {
+  margin-top: 40px;
+  padding: 16px 20px;
+  border-left: 2px solid rgba(79, 73, 115, .5);
+  background: rgba(255, 255, 255, .025);
+}
+
+.case-study-permission-note p {
+  margin: 0;
+  color: #b3b0bc;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.case-study-permission-note strong {
+  font-weight: 600;
 }
 
 .content-callout {
@@ -3040,5 +3064,44 @@ footer {
   .news-card:hover .news-card-arrow,
   .news-card:focus-within .news-card-arrow {
     transform: rotate(-45deg);
+  }
+}
+
+/* Modern formats for the full-bleed banner artwork. Progressive enhancement:
+   browsers without image-set() keep the JPEG declarations above. */
+@supports (background-image: image-set(url("a.avif") type("image/avif"))) {
+  .hero {
+    background-image: var(--section-artwork-overlay), image-set(
+      url("assets/home/home-hero-banner.avif") type("image/avif"),
+      url("assets/home/home-hero-banner.webp") type("image/webp"),
+      url("assets/home/home-hero-banner.jpg") type("image/jpeg"));
+  }
+
+  .magic-section {
+    background-image: var(--section-artwork-overlay), image-set(
+      url("assets/home/home-magic-bg.avif") type("image/avif"),
+      url("assets/home/home-magic-bg.webp") type("image/webp"),
+      url("assets/home/home-magic-bg.jpg") type("image/jpeg"));
+  }
+
+  .faq-section {
+    background-image: var(--section-artwork-overlay), image-set(
+      url("assets/home/home-faq-banner.avif") type("image/avif"),
+      url("assets/home/home-faq-banner.webp") type("image/webp"),
+      url("assets/home/home-faq-banner.jpg") type("image/jpeg"));
+  }
+
+  .case-study-cta {
+    --cta-background-image: image-set(
+      url("assets/home/home-magic-bg.avif") type("image/avif"),
+      url("assets/home/home-magic-bg.webp") type("image/webp"),
+      url("assets/home/home-magic-bg.jpg") type("image/jpeg"));
+  }
+
+  .journey-cta {
+    --cta-background-image: image-set(
+      url("assets/home/home-faq-banner.avif") type("image/avif"),
+      url("assets/home/home-faq-banner.webp") type("image/webp"),
+      url("assets/home/home-faq-banner.jpg") type("image/jpeg"));
   }
 }

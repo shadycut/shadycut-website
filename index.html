@@ -7,6 +7,54 @@
   <meta name="description" content="ShadyCut finds the story hidden inside your gaming VOD before the edit begins.">
   <title>ShadyCut - Turn long streams into story-driven videos.</title>
   <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="canonical" href="https://shadycut.com/">
+  <meta property="og:site_name" content="ShadyCut">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shadycut.com/">
+  <meta property="og:title" content="ShadyCut - Turn long streams into story-driven videos.">
+  <meta property="og:description" content="ShadyCut finds the story hidden inside your gaming VOD before the edit begins.">
+  <meta property="og:image" content="https://shadycut.com/assets/social/shadycut-og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ShadyCut cover artwork">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ShadyCut - Turn long streams into story-driven videos.">
+  <meta name="twitter:description" content="ShadyCut finds the story hidden inside your gaming VOD before the edit begins.">
+  <meta name="twitter:image" content="https://shadycut.com/assets/social/shadycut-og.jpg">
+  <meta name="twitter:image:alt" content="ShadyCut cover artwork">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ShadyCut",
+  "url": "https://shadycut.com/",
+  "description": "ShadyCut finds the story hidden inside your gaming VOD before the edit begins.",
+  "image": "https://shadycut.com/assets/social/shadycut-og.jpg",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShadyCut",
+    "url": "https://shadycut.com/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ShadyCut",
+  "url": "https://shadycut.com/",
+  "logo": "https://shadycut.com/assets/logo/shadycut-logo.jpg",
+  "description": "AI-assisted video editing system that turns long-form recordings into story-driven proposed edits.",
+  "sameAs": [
+    "https://www.twitch.tv/xShadyCut",
+    "https://x.com/ShadyFoxGaming",
+    "https://kick.com/shadyfoxgg",
+    "https://discord.gg/MBj6mBRqPG"
+  ]
+}
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -20,11 +68,13 @@
           <p class="hero-copy">Spend less time reviewing. More time creating. ShadyCut understands the session, finds the story, and builds an editable first cut.</p>
           <div class="comparison-panel comparison-panel-wide hero-comparison"
             aria-label="Raw stream to ShadyCut pre-cut comparison">
-            <div class="comparison-side raw-side"><video src="assets/home/pain-video-01-web.mp4" autoplay muted loop
-                playsinline preload="metadata" aria-label="Raw stream gameplay preview"></video><span>3+ HOURS OF STREAM</span></div>
+            <div class="comparison-side raw-side"><video src="assets/home/pain-video-01-web.mp4" poster="assets/home/pain-video-01-poster.jpg"
+                autoplay muted loop playsinline preload="metadata" width="480" height="270"
+                aria-label="Raw stream gameplay preview"></video><span>3+ HOURS OF STREAM</span></div>
             <div class="comparison-divider" aria-hidden="true"></div>
-            <div class="comparison-side precut-side"><video src="assets/home/pain-video-02-web.mp4" autoplay muted loop
-                playsinline preload="metadata" aria-label="Pre-cut gameplay preview"></video><span>STORY-DRIVEN EDIT</span></div>
+            <div class="comparison-side precut-side"><video src="assets/home/pain-video-02-web.mp4" poster="assets/home/pain-video-02-poster.jpg"
+                autoplay muted loop playsinline preload="metadata" width="480" height="270"
+                aria-label="Pre-cut gameplay preview"></video><span>STORY-DRIVEN EDIT</span></div>
           </div>
           <div class="hero-actions"><a class="button button-primary" href="https://forms.gle/9vZ9CsDaMhSVNfme8"
               target="_blank" rel="noopener noreferrer">Apply For Private Beta</a><a class="button button-secondary"
@@ -53,7 +103,9 @@
             </ul>
           </article>
           <div class="game-intelligence-media">
-            <video src="assets/home/gameint-games.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Game-specific detector preview"></video>
+            <video src="assets/home/gameint-games-web.mp4" poster="assets/home/gameint-games-poster.jpg"
+              autoplay muted loop playsinline preload="none" width="854" height="480"
+              aria-label="Game-specific detector preview"></video>
             <div class="game-context-overlay" role="group" aria-label="Examples of understood game terms">
               <p>GAME CONTEXT</p>
               <div class="game-context-window">
@@ -95,21 +147,33 @@
           <h3>REAL EXAMPLES</h3>
           <div class="game-examples-grid">
             <article class="game-example-card game-example-genshin">
-              <div class="game-example-visual"><img src="assets/home/real-examples-genshin.jpg" alt="Genshin Impact character in a moonlit landscape"></div>
+              <div class="game-example-visual"><picture>
+                <source srcset="assets/home/real-examples-genshin.avif" type="image/avif">
+                <source srcset="assets/home/real-examples-genshin.webp" type="image/webp">
+                <img src="assets/home/real-examples-genshin.jpg" alt="Genshin Impact character in a moonlit landscape" width="342" height="500" loading="lazy" decoding="async">
+              </picture></div>
               <div class="game-example-content">
                 <h4>Genshin Impact</h4>
                 <dl><div><dt>Creator</dt><dd>1ceStream</dd></div><div><dt>Character</dt><dd>Odette</dd></div><div><dt>Context</dt><dd>Character Pull</dd></div></dl>
               </div>
             </article>
             <article class="game-example-card game-example-rust">
-              <div class="game-example-visual"><img src="assets/home/real-examples-rust.jpg" alt="Rust survivor overlooking an industrial site"></div>
+              <div class="game-example-visual"><picture>
+                <source srcset="assets/home/real-examples-rust.avif" type="image/avif">
+                <source srcset="assets/home/real-examples-rust.webp" type="image/webp">
+                <img src="assets/home/real-examples-rust.jpg" alt="Rust survivor overlooking an industrial site" width="342" height="500" loading="lazy" decoding="async">
+              </picture></div>
               <div class="game-example-content">
                 <h4>Rust</h4>
                 <dl><div><dt>Location</dt><dd>Launch Site</dd></div><div><dt>Item</dt><dd>Launch Site Key</dd></div><div><dt>Objective</dt><dd>Safe Box / Loot</dd></div></dl>
               </div>
             </article>
             <article class="game-example-card game-example-arena">
-              <div class="game-example-visual"><img src="assets/home/real-examples-breakout.jpg" alt="Arena Breakout operator aiming a scoped rifle"></div>
+              <div class="game-example-visual"><picture>
+                <source srcset="assets/home/real-examples-breakout.avif" type="image/avif">
+                <source srcset="assets/home/real-examples-breakout.webp" type="image/webp">
+                <img src="assets/home/real-examples-breakout.jpg" alt="Arena Breakout operator aiming a scoped rifle" width="342" height="500" loading="lazy" decoding="async">
+              </picture></div>
               <div class="game-example-content">
                 <h4>Arena Breakout</h4>
                 <dl><div><dt>Creator</dt><dd>SADE</dd></div><div><dt>Map</dt><dd>TV Station</dd></div><div><dt>Weapon</dt><dd>M110</dd></div></dl>
@@ -131,26 +195,38 @@
           <article class="hero-step is-active">
             <div class="hero-step-copy"><span class="hero-step-number">01</span><h3>UNDERSTAND</h3>
               <p>Gameplay, speech and context understood.</p></div>
-            <div class="pipeline-preview pipeline-visual-understand"><img src="assets/home/pipeline-01.jpg"
-                alt="Gameplay being understood in context"></div>
+            <div class="pipeline-preview pipeline-visual-understand"><picture>
+              <source srcset="assets/home/pipeline-01.avif" type="image/avif">
+              <source srcset="assets/home/pipeline-01.webp" type="image/webp">
+              <img src="assets/home/pipeline-01.jpg" alt="Gameplay being understood in context" width="684" height="506" loading="lazy" decoding="async">
+            </picture></div>
           </article>
           <article class="hero-step">
             <div class="hero-step-copy"><span class="hero-step-number">02</span><h3>FIND THE STORY</h3>
               <p>The strongest story is discovered and structured.</p></div>
-            <div class="pipeline-preview pipeline-visual-story"><img src="assets/home/pipeline-02.jpg"
-                alt="A story emerging from gameplay"></div>
+            <div class="pipeline-preview pipeline-visual-story"><picture>
+              <source srcset="assets/home/pipeline-02.avif" type="image/avif">
+              <source srcset="assets/home/pipeline-02.webp" type="image/webp">
+              <img src="assets/home/pipeline-02.jpg" alt="A story emerging from gameplay" width="684" height="506" loading="lazy" decoding="async">
+            </picture></div>
           </article>
           <article class="hero-step">
             <div class="hero-step-copy"><span class="hero-step-number">03</span><h3>DIRECT THE EDIT</h3>
               <p>Scene order, pacing and cut decisions prepared.</p></div>
-            <div class="pipeline-preview pipeline-visual-direct"><img src="assets/home/pipeline-03.jpg"
-                alt="Selected scenes prepared for the edit"></div>
+            <div class="pipeline-preview pipeline-visual-direct"><picture>
+              <source srcset="assets/home/pipeline-03.avif" type="image/avif">
+              <source srcset="assets/home/pipeline-03.webp" type="image/webp">
+              <img src="assets/home/pipeline-03.jpg" alt="Selected scenes prepared for the edit" width="684" height="506" loading="lazy" decoding="async">
+            </picture></div>
           </article>
           <article class="hero-step">
             <div class="hero-step-copy"><span class="hero-step-number">04</span><h3>EDITABLE TIMELINE</h3>
               <p>A first-cut timeline ready for your editor.</p></div>
-            <div class="pipeline-preview pipeline-visual-timeline"><img src="assets/home/pipeline-04.jpg"
-                alt="Editable professional video timeline"></div>
+            <div class="pipeline-preview pipeline-visual-timeline"><picture>
+              <source srcset="assets/home/pipeline-04.avif" type="image/avif">
+              <source srcset="assets/home/pipeline-04.webp" type="image/webp">
+              <img src="assets/home/pipeline-04.jpg" alt="Editable professional video timeline" width="684" height="506" loading="lazy" decoding="async">
+            </picture></div>
           </article>
         </div>
       </div>
@@ -165,8 +241,8 @@
         </div>
         <article class="case-study">
           <div class="case-media"><video src="case-studies/260905-1cestream-genshin-odette/1ce-genshin-intro-web.mp4"
-              poster="assets/case-studies/1cestream-news-frame.jpg" autoplay muted loop playsinline preload="metadata"
-              aria-label="1ceStream Genshin Impact ShadyCut first-cut preview"></video></div>
+              poster="assets/case-studies/1cestream-news-frame.jpg" autoplay muted loop playsinline preload="none"
+              width="1280" height="720" aria-label="1ceStream Genshin Impact ShadyCut first-cut preview"></video></div>
           <div class="case-content">
             <h3>From an Odette pull to a complete story.</h3>
             <p>ShadyCut connected a character pull, personal stories, testing, reactions, and combat from 1ceStream’s

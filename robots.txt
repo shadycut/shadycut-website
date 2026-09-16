@@ -1,0 +1,9 @@
+# https://shadycut.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Page scaffolding, not real pages.
+Disallow: /templates/
+
+Sitemap: https://shadycut.com/sitemap.xml
