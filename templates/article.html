@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="../">
+  <meta name="description" content="{{DESCRIPTION}}">
+  <title>{{TITLE}} - ShadyCut</title>
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="content-page article-page">
+  <div data-component="header"></div>
+  <main id="top" class="content-detail article-detail">
+    <header class="site-shell content-hero article-hero">
+      <p class="eyebrow">ARTICLE</p>
+      <h1 id="article-title">{{TITLE}}</h1>
+      <p class="default-page-intro">{{LEDE}}</p>
+    </header>
+
+    <div class="site-shell">
+      <dl class="content-meta article-meta" aria-label="Article details">
+        <div>
+          <dt>Published</dt>
+          <dd><time datetime="{{PUBLISHED_ISO}}">{{PUBLISHED_DATE}}</time></dd>
+        </div>
+        <div>
+          <dt>Reading time</dt>
+          <dd data-reading-time>—</dd>
+        </div>
+      </dl>
+      <figure class="article-featured-media">
+        <img src="{{HERO_SRC}}" alt="{{HERO_ALT}}" width="{{HERO_WIDTH}}" height="{{HERO_HEIGHT}}" fetchpriority="high">
+      </figure>
+    </div>
+
+    <article class="site-shell content-body" aria-labelledby="article-title">
+      <h2>{{SECTION_HEADING}}</h2>
+      <p>{{PARAGRAPH}}</p>
+      <!-- Add further h2 / p elements and copy the reusable content snippets here. -->
+    </article>
+  </main>
+
+  <div data-component="case-study-cta"></div>
+  <div data-component="footer"></div>
+  <script src="components/loader.js"></script>
+  <script src="components/article-meta.js"></script>
+</body>
+
+</html>
