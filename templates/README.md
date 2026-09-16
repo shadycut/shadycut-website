@@ -37,8 +37,7 @@ width and height attributes and useful alt text; adjust `object-position`
 only if an image needs a different focal point.
 
 The first article is `articles/why-highlight-generators-fail-at-long-form-gaming-content.html`.
-Its temporary image, `assets/articles/highlight-generators-hero-temporary.jpg`,
-is a copy of the existing `assets/home/home-game-banner.jpg`. Replace that
+Its temporary image is `assets/articles/highlight-generators-hero.jpg`. Replace that
 dedicated image or change the article’s `src` when final artwork is available.
 Update the dimensions and alt text for the replacement.
 

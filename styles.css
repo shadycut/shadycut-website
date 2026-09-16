@@ -130,23 +130,17 @@ p {
   text-transform: uppercase;
 }
 
-.section-heading h2,
-.final-cta h2 {
+.section-heading h2 {
   margin-bottom: 0;
   font-size: clamp(38px, 5vw, 64px);
   line-height: 1;
   letter-spacing: -.05em;
 }
 
-.section-heading p,
-.final-cta p {
+.section-heading p {
   margin: 18px 0 0;
   color: var(--soft);
   font-size: 18px;
-}
-
-.placeholder-label {
-  text-transform: uppercase;
 }
 
 
@@ -208,10 +202,6 @@ footer {
 }
 
 @media (max-width:980px) {
-  .problem-grid {
-    gap: 38px;
-  }
-
   .magic-section .hero-steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -236,13 +226,11 @@ footer {
     padding: 26px 12px 78px;
   }
 
-  .pipeline,
-  .snapshot-grid {
+  .pipeline {
     grid-template-columns: 1fr;
   }
 
-  .hero-actions,
-  .final-actions {
+  .hero-actions {
     flex-direction: column;
   }
 
@@ -665,8 +653,6 @@ h4 {
   font-family: var(--font-heading);
 }
 
-.brand-copy strong,
-.brand-copy span,
 .mono,
 nav a,
 .eyebrow,
@@ -892,11 +878,6 @@ footer {
 .magic-section .hero-step.is-active {
   z-index: 2;
   transform: translateY(-4px);
-}
-
-.magic-cta {
-  margin-top: 40px;
-  text-align: center;
 }
 
 .button-primary {
@@ -1771,10 +1752,6 @@ footer {
   .magic-section .hero-step,
   .magic-section .hero-step-copy {
     min-height: 0;
-  }
-
-  .magic-cta {
-    margin-top: 32px;
   }
 
   .site-header nav {
