@@ -58,6 +58,6 @@ asset or layer; Update does not introduce a new background composition.
 
 The first update is `updates/from-first-file-to-first-real-edit.html`.
 Its publication date defaults to September 16, 2026. Its temporary hero
-reuses `assets/home/home-game-banner.jpg`, not a product screenshot.
+uses `updates/ShadyCut-Cover.jpg`, not a product screenshot.
 Replace the page's image source when final artwork is ready,
 and update the dimensions and alt text.
