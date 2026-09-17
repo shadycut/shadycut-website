@@ -24,6 +24,10 @@
     });
   });
 
+  // Shared case-study CTAs open the existing hub with its Case Studies view selected.
+  const initialType = new URLSearchParams(window.location.search).get('type');
+  buttons.find((button) => button.dataset.filter === initialType)?.click();
+
   // Play the real previews only while their cards are visible. Keep the poster
   // if playback is unavailable or the viewer prefers reduced motion.
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');

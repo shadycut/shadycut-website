@@ -9,6 +9,8 @@ async function loadComponent(selector, path) {
 Promise.all([
   loadComponent('[data-component="header"]', 'components/header.html'),
   loadComponent('[data-component="case-study-cta"]', 'components/case-study-cta.html'),
+  loadComponent('[data-component="see-it-in-action"]', 'components/see-it-in-action.html'),
+  loadComponent('[data-component="session-understanding"]', 'components/session-understanding.html'),
   loadComponent('[data-component="case-study-permission-note"]', 'components/case-study-permission-note.html'),
   loadComponent('[data-component="follow-the-journey"]', 'components/follow-the-journey.html'),
   loadComponent('[data-component="footer"]', 'components/footer.html')
