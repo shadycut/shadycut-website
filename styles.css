@@ -809,6 +809,11 @@ footer {
   gap: 18px;
 }
 
+.magic-section .magic-cta {
+  margin-top: 40px;
+  text-align: center;
+}
+
 .magic-section .hero-step {
   z-index: 1;
   display: flex;
@@ -1509,7 +1514,7 @@ footer {
 }
 
 .game-context-overlay:before,
-.session-visual .story-arc::before,
+.session-visual .session-overview-panel::before,
 .session-visual .session-events::before,
 .session-visual .session-transcript::before,
 .session-visual .session-audio::before {
@@ -1997,7 +2002,7 @@ footer {
   color: #c2c5bd;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1;
+  line-height: inherit;
   text-decoration: none;
   cursor: default;
 }
@@ -3117,6 +3122,7 @@ picture {
 /* How It Works: continuous opening and shared content blocks. */
 .how-it-works-page .content-detail {
   padding-top: 0;
+  padding-bottom: 0;
 }
 
 .how-it-works-page .workflow-opening {
@@ -3181,17 +3187,24 @@ picture {
 }
 
 .how-it-works-page .phase-direct .phase-illustration,
-.how-it-works-page .phase-direct .phase-illustration img {
+.how-it-works-page .phase-direct .phase-illustration img,
+.how-it-works-page .phase-timeline .phase-illustration {
   aspect-ratio: auto;
 }
 
-.how-it-works-page .phase-direct .phase-illustration {
+.how-it-works-page .phase-direct .phase-illustration,
+.how-it-works-page .phase-timeline .phase-illustration {
   width: 90%;
   justify-self: center;
 }
 
-.how-it-works-page .phase-direct .phase-illustration img {
+.how-it-works-page .phase-direct .phase-illustration img,
+.how-it-works-page .phase-timeline .phase-illustration img {
   height: auto;
+}
+
+.how-it-works-page .phase-timeline .phase-illustration img {
+  aspect-ratio: 1122 / 1402;
 }
 
 .how-it-works-page .workflow-phase .content-checklist li {
@@ -3329,7 +3342,7 @@ picture {
 }
 
 .how-it-works-page .content-detail > .workflow-phase:last-child {
-  padding-bottom: 0;
+  padding-bottom: 110px;
   margin-bottom: 0;
 }
 
@@ -3349,7 +3362,8 @@ picture {
   max-width: 1000px;
 }
 
-.how-it-works-page .phase-story {
+.how-it-works-page .phase-story,
+.how-it-works-page .phase-timeline {
   background:
     radial-gradient(ellipse at 88% 12%, rgba(var(--content-accent-cool), .055), transparent 58%),
     radial-gradient(ellipse at 12% 80%, rgba(var(--content-accent-warm), .04), transparent 55%),
@@ -3357,61 +3371,100 @@ picture {
 }
 
 .story-visual .session-base img {
-  aspect-ratio: 2.1 / 1;
+  aspect-ratio: auto 1344 / 787;
   object-fit: cover;
 }
 
-.session-visual.story-visual .story-arc {
+@media (min-width: 1100px) {
+  .story-visual .session-base img {
+    height: 610px;
+    object-position: center top;
+  }
+}
+
+.session-overview-panels {
+  position: absolute;
   right: 3%;
   bottom: 4%;
-  width: 374px;
-  padding: 16px;
-  font-size: 13px;
-}
-
-.story-arc dl {
-  margin: 12px 0 0;
-}
-
-.story-arc dl > div {
+  left: 3%;
   display: grid;
-  grid-template-columns: 78px minmax(0, 1fr);
-  gap: 12px;
-  padding: 8px 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.session-visual .session-overview-panels .session-overview-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(9, 18, 30, .78), rgba(13, 18, 31, .68));
+}
+
+.session-visual .session-overview-panel .session-overlay-heading {
+  min-height: 20px;
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+
+.session-overview-panel .session-icon {
+  color: var(--cyan);
+}
+
+.session-overview-panel ul {
+  display: grid;
+  grid-template-rows: repeat(5, minmax(32px, 1fr));
+  flex: 1;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.session-overview-panel li {
+  display: grid;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
   border-top: 1px solid rgba(90, 100, 145, .24);
 }
 
-.story-arc dt {
-  color: var(--cyan);
+.session-signal-rows li {
+  grid-template-columns: 16px minmax(0, 1fr);
+}
+
+.session-overview-panel .session-signal-rows .session-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.session-detected-rows li {
+  grid-template-columns: 40px minmax(0, 1fr);
+}
+
+.session-speaker-rows li {
+  grid-template-columns: 60px minmax(0, 1fr);
+}
+
+.session-overview-panel b {
   font-size: 11px;
-  font-weight: 600;
-}
-
-.story-arc dd {
-  margin: 0;
-}
-
-.story-arc dl > div:first-child dt,
-.story-arc dl > div:last-child dt {
-  color: var(--yellow);
-}
-
-.story-arc dl > div:nth-child(2) dt {
-  color: var(--pink);
+  font-weight: 500;
 }
 
 @media (max-width: 1099px) {
-  .session-visual.story-visual .story-arc {
+  .session-overview-panels {
     position: relative;
     right: auto;
     bottom: auto;
-    width: 100%;
-    padding: 18px 20px;
-    border: 0;
-    border-top: 1px solid rgba(65, 232, 255, .28);
-    border-radius: 0;
-    box-shadow: none;
-    backdrop-filter: none;
+    left: auto;
+    gap: 12px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .session-overview-panels {
+    grid-template-columns: 1fr;
+    padding: 12px;
   }
 }
 
@@ -3419,7 +3472,9 @@ picture {
   margin: 40px 0 0;
 }
 
-.session-scene {
+.session-scene,
+.how-it-works-page .phase-direct .phase-illustration,
+.how-it-works-page .phase-timeline .phase-illustration {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(90, 100, 145, .52);
