@@ -1,0 +1,28 @@
+# Permanent redirects for published content URLs. Keep these before the 200 proxies.
+/articles/why-highlight-generators-fail-at-long-form-gaming-content.html /articles/why-highlight-generators-fail-at-long-form-gaming-content 301
+/updates/from-first-file-to-first-real-edit.html /updates/from-first-file-to-first-real-edit 301
+/case-studies/260802-chowds-ab-pilot/from-a-two-hour-stream-to-one-story-worth-watching.html /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
+/case-studies/260802-chowds-ab-pilot/from-a-two-hour-stream-to-one-story-worth-watching /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
+/case-studies/260905-1cestream-genshin-odette/from-an-odette-pull-to-a-complete-story.html /case-studies/from-an-odette-pull-to-a-complete-story 301
+/case-studies/260905-1cestream-genshin-odette/from-an-odette-pull-to-a-complete-story /case-studies/from-an-odette-pull-to-a-complete-story 301
+
+# Earlier Chowds page locations and the flat .html case-study aliases.
+/case-studies/chowds /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
+/case-studies/chowds/ /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
+/case-studies/chowds/index.html /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
+/case-studies/from-a-two-hour-stream-to-one-story-worth-watching.html /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
+/case-studies/from-an-odette-pull-to-a-complete-story.html /case-studies/from-an-odette-pull-to-a-complete-story 301
+
+# Canonical content URLs do not have a trailing slash.
+/articles/why-highlight-generators-fail-at-long-form-gaming-content/ /articles/why-highlight-generators-fail-at-long-form-gaming-content 301
+/updates/from-first-file-to-first-real-edit/ /updates/from-first-file-to-first-real-edit 301
+/case-studies/from-a-two-hour-stream-to-one-story-worth-watching/ /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
+/case-studies/from-an-odette-pull-to-a-complete-story/ /case-studies/from-an-odette-pull-to-a-complete-story 301
+/case-studies/260802-chowds-ab-pilot/from-a-two-hour-stream-to-one-story-worth-watching/ /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
+/case-studies/260905-1cestream-genshin-odette/from-an-odette-pull-to-a-complete-story/ /case-studies/from-an-odette-pull-to-a-complete-story 301
+
+# Serve case-study pages at clean URLs without moving their internal HTML or assets.
+# Pages applies only the first matching rule; these proxies do not follow the redirects above.
+# Keep artifact URLs untouched: never redirect entire dated folders.
+/case-studies/from-a-two-hour-stream-to-one-story-worth-watching /case-studies/260802-chowds-ab-pilot/from-a-two-hour-stream-to-one-story-worth-watching 200
+/case-studies/from-an-odette-pull-to-a-complete-story /case-studies/260905-1cestream-genshin-odette/from-an-odette-pull-to-a-complete-story 200
