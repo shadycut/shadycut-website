@@ -51,14 +51,19 @@ function proxyFor(rules, source) {
 
 function publicPath(rules, source, fallback, canonical) {
   const proxy = proxyFor(rules, source);
-  if (proxy) return proxy.from;
+  const pathname = proxy ? proxy.from : fallback;
   if (canonical) {
     let url;
     try { url = new URL(canonical, ORIGIN); } catch { return null; }
     if (url.origin !== ORIGIN || url.search || url.hash || url.pathname.startsWith('/pages/')) return null;
-    if (sourceKey(url.pathname).replace(/\/$/, '') !== sourceKey(fallback).replace(/\/$/, '')) return null;
+    if (sourceKey(url.pathname).replace(/\/$/, '') !== sourceKey(pathname).replace(/\/$/, '')) return null;
+    // Source-key equivalence identifies aliases; it does not make redirecting
+    // .html, index.html or trailing-slash variants valid canonical URLs.
+    if (url.pathname !== pathname) {
+      throw new Error(`Canonical URL mismatch for ${source}: ${canonical}; expected ${ORIGIN}${pathname}`);
+    }
   }
-  return fallback;
+  return pathname;
 }
 
 function discoverContentPages(root, rules) {
@@ -94,5 +99,5 @@ function discoverContentPages(root, rules) {
   });
 }
 
-module.exports = { ORIGIN, CONTENT_TYPES, pageInfo, excludedSource, parseRules, firstRule,
+module.exports = { ORIGIN, CONTENT_TYPES, attributes, pageInfo, excludedSource, parseRules, firstRule,
   publicPath, discoverContentPages };

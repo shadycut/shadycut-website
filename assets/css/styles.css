@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 /* Design tokens / base */
 * {
   box-sizing: border-box;
@@ -1118,6 +1116,12 @@ footer {
   font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
+}
+
+/* The question is a heading for document structure; summary keeps supplying its appearance. */
+.faq-grid summary h2 {
+  margin: 0;
+  font: inherit;
 }
 
 .faq-grid summary:after {
@@ -4318,6 +4322,56 @@ picture {
 }
 
 
+/* Games: compact public knowledge context. */
+.games-page .games-support {
+  margin-bottom: 40px;
+}
+
+.games-page .games-support h2 {
+  margin: 0 0 12px;
+  font-size: 23px;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+}
+
+.games-page .games-support p {
+  max-width: 780px;
+  margin: 0;
+  color: var(--soft);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.games-page .game-knowledge {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.games-page .game-knowledge-label {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+.games-page .game-knowledge-list,
+.games-page .game-case-study-link {
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.games-page .game-knowledge-list {
+  margin: 0;
+  color: var(--soft);
+}
+
+.games-page .game-case-study-link {
+  display: block;
+  margin-top: 16px;
+}
+
 /* Features */
 /* Features extends the Games page shell, hero, grid and compact card surfaces. */
 :where(.features-page) .features-hero {
@@ -4430,10 +4484,6 @@ picture {
 :where(.features-page) .feature-video-frame {
   border-color: rgba(182, 154, 255, .35);
   box-shadow: 0 36px 90px rgba(0, 0, 0, .38), 0 0 42px rgba(182, 154, 255, .06);
-}
-
-:where(.features-page) .features-cta {
-  background: radial-gradient(ellipse at 15% 50%, rgba(65, 232, 255, .06), transparent 65%), #090a16;
 }
 
 :where(.features-page) .features-cta h2 {

@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { spawnSync } = require('node:child_process');
-const { parseRules } = require('../scripts/public-pages');
+const { parseRules, publicPath } = require('../scripts/public-pages');
 
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'shadycut-routes-'));
@@ -122,4 +122,51 @@ test('ambiguous layouts, manual conflicts and malformed markers fail without wri
   result = f.run('routes');
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /Invalid or duplicate/);
+});
+
+test('canonical validation requires the exact public URL with and without a proxy', () => {
+  for (const [source, publicUrl, aliases] of [
+    ['/pages/privacy.html', '/privacy', ['/privacy.html', '/privacy/']],
+    ['/pages/terms.html', '/terms', ['/terms.html', '/terms/']],
+    ['/pages/features/index.html', '/features/', ['/features', '/features/index.html']],
+    ['/pages/updates/new-flat.html', '/updates/new-flat/', ['/updates/new-flat', '/updates/new-flat.html']]
+  ]) {
+    for (const rules of [[], [{ from: publicUrl, to: source, status: 200 }]]) {
+      assert.equal(publicPath(rules, source, publicUrl, `https://shadycut.com${publicUrl}`), publicUrl);
+      for (const alias of aliases) {
+        assert.throws(() => publicPath(rules, source, publicUrl, `https://shadycut.com${alias}`),
+          /Canonical URL mismatch/);
+      }
+    }
+  }
+  // The actual proxy, not the generated-route fallback, defines the public URL.
+  const rules = [{ from: '/updates/existing', to: '/pages/updates/existing', status: 200 }];
+  assert.equal(publicPath(rules, '/pages/updates/existing.html', '/updates/existing/',
+    'https://shadycut.com/updates/existing'), '/updates/existing');
+});
+
+test('sitemap rejects redirecting legal-page canonicals without changing generated output', t => {
+  const f = fixture(t);
+  f.write('_redirects', f.manual + '/privacy.html /privacy 308\r\n/privacy /pages/privacy 200\r\n' +
+    '/terms.html /terms 308\r\n/terms /pages/terms 200\r\n');
+  for (const slug of ['privacy', 'terms']) {
+    f.write(`pages/${slug}.html`, `<link rel="canonical" href="https://shadycut.com/${slug}">`);
+  }
+  f.build();
+  const routes = f.read('_redirects');
+  const sitemap = f.read('sitemap.xml');
+  for (const slug of ['privacy', 'terms']) {
+    assert.ok(sitemap.includes(`https://shadycut.com/${slug}</loc>`));
+    f.write(`pages/${slug}.html`, `<link rel="canonical" href="https://shadycut.com/${slug}.html">`);
+    const result = f.run('sitemap');
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /Canonical URL mismatch/);
+    assert.ok(result.stderr.includes(`expected https://shadycut.com/${slug}`));
+    assert.equal(f.read('sitemap.xml'), sitemap);
+    assert.equal(f.read('_redirects'), routes);
+    f.write(`pages/${slug}.html`, `<link rel="canonical" href="https://shadycut.com/${slug}">`);
+  }
+  f.build();
+  assert.equal(f.read('sitemap.xml'), sitemap);
+  assert.equal(f.read('_redirects'), routes);
 });

@@ -8,6 +8,11 @@ from the site root, independently of source-file depth. These are
 internal filenames. New pages use `/articles/<readable-slug>/`; existing
 published URLs without a trailing slash remain unchanged.
 
+Both templates carry `<meta name="robots" content="noindex">` because the
+template files themselves are served at `/templates/…`. Delete that tag, and
+the comment above it, in the copy: a page that keeps it is excluded from the
+sitemap and gets no generated route, so it will not be reachable at all.
+
 Set `{{PUBLISHED_ISO}}` to the publication date in `YYYY-MM-DD` format and
 `{{PUBLISHED_DATE}}` to its readable display value. The Published row reuses
 the Case Study `.content-meta` styles, with a compact two-column article layout.
@@ -29,8 +34,11 @@ panel appearance, while `.content-checklist` and `.editorial-quote` supply
 the checklist and quote layout. `.content-meta` is available for optional
 definition-list metadata using the same markup as the case studies.
 
-Keep the existing header, footer, loader and `data-component="case-study-cta"`
-slot. The CTA is loaded directly from `components/case-study-cta.html`.
+Keep the existing `data-component="header"`, `data-component="footer"`,
+loader and `data-component="case-study-cta"` slots. `npm run build` replaces
+the header and footer slots with the real markup, as described under
+*Build-time shared components*; the CTA is still loaded at runtime from
+`components/case-study-cta.html`.
 
 Hero images fill the content width and crop with `object-fit: cover`, reaching
 480px tall on desktop and at least 240px on small screens. The body starts
@@ -146,11 +154,37 @@ Deploy the repository's static files with `_redirects` included in the
 Cloudflare Pages output root. A plain static-file server does not apply
 these rules; use `npx wrangler pages dev .` for local routing checks.
 
+## Build-time shared components
+
+`components/header.html` and `components/footer.html` remain the single source
+of truth for the site shell. `scripts/inline-components.js` (`npm run components`,
+part of `npm run build`) copies them into every page between
+`BEGIN`/`END AUTO-GENERATED COMPONENT` comments, so the primary navigation and
+footer link graph is in the served HTML and does not depend on JavaScript.
+
+Do not edit a generated block by hand and do not paste header or footer markup
+into a page: edit the fragment and rebuild. New pages keep the
+`<div data-component="header"></div>` and `<div data-component="footer"></div>`
+placeholders that the templates provide; the build converts them on its first
+run and regenerates the blocks in place afterwards. Files under `templates/`
+keep their placeholders because they are scaffolding and are never served.
+
+The build fails without writing anything when a public page is missing either
+slot or contains a duplicate, so a page cannot ship without the shared
+navigation. Every page under `pages/`, plus `index.html` and `404.html`,
+is covered.
+
+`components/loader.js` no longer fetches the header or footer. It still fetches
+the remaining runtime components and wires up the header behaviour that needs
+JavaScript: the mobile menu, the dropdown open/close logic, Escape handling and
+inert placeholder links. Keep the `<script src="components/loader.js"></script>`
+tag on every page.
+
 ## Automatic routes and sitemap generation
 
 Run `npm run build` before publishing the static repository root. It runs
-`npm run routes` followed by `npm run sitemap`, with no dependencies
-or installation required. In Cloudflare Pages, use `npm run build` as the
+`npm run components`, `npm run social`, `npm run routes` and `npm run sitemap`
+in that order, with no dependencies or installation required. In Cloudflare Pages, use `npm run build` as the
 build command and keep the existing repository-root output directory.
 There is no checked-in deploy command; direct upload workflows must run
 this build command before uploading. Generation does not deploy anything.
@@ -191,3 +225,31 @@ or generation fails. URLs are deduplicated and output is deterministic.
 No `lastmod`, `changefreq`, or `priority` is generated: current content
 provides publication dates, not verified modification dates. Do not manually
 edit `sitemap.xml`; regenerate it after adding or removing public pages.
+
+## Social preview images
+
+Every public page resolves one social image through the same rule, applied by
+`scripts/generate-social-images.js` (`npm run social`, part of `npm run build`):
+
+1. an explicit `<meta name="social-image">` override;
+2. otherwise the page's own `<meta name="hero-image">`;
+3. otherwise the generic `assets/social/shadycut-og.jpg`.
+
+Declare the hero next to the canonical link, using the same path as the page's
+hero `img` (`<base href="/">` resolves both), and describe it with
+`hero-image-alt`. Article and Update copies fill `{{HERO_SRC}}` and
+`{{HERO_ALT}}` there as well as in the hero figure. Use `social-image` and
+`social-image-alt` only when a page needs dedicated social artwork that is not
+its hero.
+
+The build writes `og:image`, `og:image:type/width/height/alt`, `twitter:image`
+and `twitter:image:alt` into the marked `AUTO-GENERATED SOCIAL IMAGE` block in
+the page head, always as absolute `https://shadycut.com` URLs. Do not edit those
+tags by hand: change the declaration and rebuild. Type and dimensions are read
+from the file, so they cannot drift from the published artwork.
+
+Referenced images are validated: the file must exist in the repository, be a
+JPEG, PNG or WebP (social crawlers do not read AVIF) and be at least 200x200.
+A missing or unusable image fails the build before any page is rewritten.
+`npm run social -- --check` validates without writing, and pages without Open
+Graph metadata or an image declaration, such as `404.html`, are left untouched.
