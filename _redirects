@@ -1,4 +1,12 @@
+# BEGIN AUTO-GENERATED CONTENT ROUTES
+/updates/two-months-in-the-first-time-shadycut-felt-real /updates/two-months-in-the-first-time-shadycut-felt-real/ 308
+/updates/two-months-in-the-first-time-shadycut-felt-real.html /updates/two-months-in-the-first-time-shadycut-felt-real/ 308
+/updates/two-months-in-the-first-time-shadycut-felt-real/index /updates/two-months-in-the-first-time-shadycut-felt-real/ 308
+/updates/two-months-in-the-first-time-shadycut-felt-real/index.html /updates/two-months-in-the-first-time-shadycut-felt-real/ 308
+/updates/two-months-in-the-first-time-shadycut-felt-real/ /pages/updates/two-months-in-the-first-time-shadycut-felt-real 200
+# END AUTO-GENERATED CONTENT ROUTES
 # Permanent redirects for published content URLs. Keep these before the 200 proxies.
+/articles/why-shadycut-stops-before-the-final-edit.html /articles/why-shadycut-stops-before-the-final-edit 301
 /articles/why-highlight-generators-fail-at-long-form-gaming-content.html /articles/why-highlight-generators-fail-at-long-form-gaming-content 301
 /updates/from-first-file-to-first-real-edit.html /updates/from-first-file-to-first-real-edit 301
 /case-studies/260802-chowds-ab-pilot/from-a-two-hour-stream-to-one-story-worth-watching.html /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
@@ -14,6 +22,7 @@
 /case-studies/from-an-odette-pull-to-a-complete-story.html /case-studies/from-an-odette-pull-to-a-complete-story 301
 
 # Canonical content URLs do not have a trailing slash.
+/articles/why-shadycut-stops-before-the-final-edit/ /articles/why-shadycut-stops-before-the-final-edit 301
 /articles/why-highlight-generators-fail-at-long-form-gaming-content/ /articles/why-highlight-generators-fail-at-long-form-gaming-content 301
 /updates/from-first-file-to-first-real-edit/ /updates/from-first-file-to-first-real-edit 301
 /case-studies/from-a-two-hour-stream-to-one-story-worth-watching/ /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
@@ -21,8 +30,46 @@
 /case-studies/260802-chowds-ab-pilot/from-a-two-hour-stream-to-one-story-worth-watching/ /case-studies/from-a-two-hour-stream-to-one-story-worth-watching 301
 /case-studies/260905-1cestream-genshin-odette/from-an-odette-pull-to-a-complete-story/ /case-studies/from-an-odette-pull-to-a-complete-story 301
 
-# Serve case-study pages at clean URLs without moving their internal HTML or assets.
-# Pages applies only the first matching rule; these proxies do not follow the redirects above.
-# Keep artifact URLs untouched: never redirect entire dated folders.
-/case-studies/from-a-two-hour-stream-to-one-story-worth-watching /case-studies/260802-chowds-ab-pilot/from-a-two-hour-stream-to-one-story-worth-watching 200
-/case-studies/from-an-odette-pull-to-a-complete-story /case-studies/260905-1cestream-genshin-odette/from-an-odette-pull-to-a-complete-story 200
+# Preserve Cloudflare's existing directory and legal-page normalization.
+# Explicit aliases prevent automatic redirects from exposing the source directory.
+/how-it-works /how-it-works/ 308
+/how-it-works/index /how-it-works/ 308
+/how-it-works/index.html /how-it-works/ 308
+/features /features/ 308
+/features/index /features/ 308
+/features/index.html /features/ 308
+/games /games/ 308
+/games/index /games/ 308
+/games/index.html /games/ 308
+/faq /faq/ 308
+/faq/index /faq/ 308
+/faq/index.html /faq/ 308
+/news /news/ 308
+/news/index /news/ 308
+/news/index.html /news/ 308
+/about /about/ 308
+/about/index /about/ 308
+/about/index.html /about/ 308
+/privacy.html /privacy 308
+/privacy/ /privacy 308
+/terms.html /terms 308
+/terms/ /terms 308
+
+# Serve public URLs directly from /pages/ using internal 200 proxies.
+# Targets use native clean routes so HTML normalization cannot leak /pages/.
+/articles/why-shadycut-stops-before-the-final-edit /pages/articles/why-shadycut-stops-before-the-final-edit 200
+/how-it-works/ /pages/how-it-works/ 200
+/features/ /pages/features/ 200
+/games/ /pages/games/ 200
+/faq/ /pages/faq/ 200
+/news/ /pages/news/ 200
+/about/ /pages/about/ 200
+/privacy /pages/privacy 200
+/terms /pages/terms 200
+/articles/why-highlight-generators-fail-at-long-form-gaming-content /pages/articles/why-highlight-generators-fail-at-long-form-gaming-content 200
+/updates/from-first-file-to-first-real-edit /pages/updates/from-first-file-to-first-real-edit 200
+/case-studies/from-a-two-hour-stream-to-one-story-worth-watching /pages/case-studies/from-a-two-hour-stream-to-one-story-worth-watching 200
+/case-studies/from-an-odette-pull-to-a-complete-story /pages/case-studies/from-an-odette-pull-to-a-complete-story 200
+
+# Source paths are internal; direct requests return to the same public URL.
+/pages/* /:splat 301

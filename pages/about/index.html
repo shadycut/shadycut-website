@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="/">
+  <meta name="description" content="Meet the creator behind ShadyCut.">
+  <title>About — ShadyCut</title>
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="canonical" href="https://shadycut.com/about/">
+  <meta property="og:site_name" content="ShadyCut">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shadycut.com/about/">
+  <meta property="og:title" content="About — ShadyCut">
+  <meta property="og:description" content="Meet the creator behind ShadyCut.">
+  <meta property="og:image" content="https://shadycut.com/assets/social/shadycut-og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ShadyCut cover artwork">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — ShadyCut">
+  <meta name="twitter:description" content="Meet the creator behind ShadyCut.">
+  <meta name="twitter:image" content="https://shadycut.com/assets/social/shadycut-og.jpg">
+  <meta name="twitter:image:alt" content="ShadyCut cover artwork">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body class="content-page about-page">
+  <div data-component="header"></div>
+  <main id="top">
+    <section class="full-bleed-section founder-section" id="founder">
+      <div class="site-shell">
+        <article class="founder-card">
+          <div class="founder-media"><picture>
+              <source srcset="assets/home/home-shady.avif" type="image/avif">
+              <source srcset="assets/home/home-shady.webp" type="image/webp">
+              <img src="assets/home/home-shady.jpg" alt="ShadyFox, the creator building ShadyCut" width="967" height="1286" decoding="async">
+            </picture><span>SHADYFOX / FOUNDER PHOTO</span></div>
+          <div class="founder-content">
+            <p class="eyebrow">BUILDING IN PUBLIC</p>
+            <h1>Meet the creator behind ShadyCut.</h1>
+            <p class="founder-intro">I'm building ShadyCut in public. The project started on July 21, 2026 and is
+              currently in active development. The goal is simple: help creators spend less time preparing and more time
+              creating.</p>
+            <div class="founder-block">
+              <p class="eyebrow">COMMUNITY</p>
+              <p>Want to follow development, give feedback or join the private beta?</p><a class="button button-primary"
+                href="#" aria-label="Join the ShadyCut Discord community">Join Discord</a><small>Be part of the community
+                building ShadyCut.</small>
+            </div>
+            <div class="founder-block">
+              <p class="eyebrow">SUPPORT THE PROJECT</p>
+              <p>If you enjoy the project and want to help accelerate development, you can support it directly.</p><a
+                class="button button-secondary" href="#">Support via PayPal</a>
+            </div>
+            <div class="founder-block founder-follow">
+              <p class="eyebrow">FOLLOW ME</p>
+              <nav aria-label="Social links"><a href="#">YouTube</a><a href="#">Twitch</a><a href="#">TikTok</a><a
+                  href="#">Kick</a><a href="#">X</a><a href="#">Reddit</a></nav>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <div data-component="footer"></div>
+  <script src="components/loader.js"></script>
+  <script>
+    const founderSection = document.querySelector('.founder-section');
+    const founderCard = founderSection && founderSection.querySelector('.founder-card');
+    const founderContent = founderCard && founderCard.querySelector('.founder-content');
+    if (founderSection && founderCard && founderContent) {
+      const founderHeading = document.createElement('div');
+      founderHeading.className = 'founder-heading';
+      founderHeading.append(founderContent.querySelector('.eyebrow'), founderContent.querySelector('h1'), founderContent.querySelector('.founder-intro'));
+      founderContent.prepend(founderHeading);
+      founderHeading.querySelector('.eyebrow').textContent = 'ShadyCut FOUNDER';
+      founderHeading.querySelector('.founder-intro').innerHTML = 'ShadyCut started with a simple idea: <strong>preparing a great gaming video shouldn\'t take longer than creating it.</strong> Instead of replacing editors, my goal is to eliminate the repetitive work that happens before the first creative cut. Every application, every piece of feedback, and every processed stream helps shape the platform.<br><br>The roadmap is simple: <strong>Private Beta → Creator Service → Public Beta.</strong> Each stage is focused on learning from real creators and improving the workflow before making ShadyCut available to everyone.';
+      founderCard.querySelector('.founder-media img').src = 'assets/home/home-shady.jpg';
+      const founderLinks = { 'Join Discord': 'https://discord.gg/MBj6mBRqPG', 'Support via PayPal': 'https://www.paypal.com/donate/?hosted_button_id=JSU2AS5RJ7PZS', YouTube: 'https://www.youtube.com/@ShadyFoxGG', Twitch: 'https://www.twitch.tv/xShadyCut', TikTok: 'https://www.tiktok.com/@shadyfoxgg', Kick: 'https://kick.com/shadyfoxgg', X: 'https://x.com/ShadyFoxGaming', Reddit: 'https://www.reddit.com/user/ShadyFoxYT/' };
+      founderCard.querySelectorAll('a').forEach((link) => { if (founderLinks[link.textContent]) { link.href = founderLinks[link.textContent]; link.target = '_blank'; link.rel = 'noopener noreferrer'; } });
+      const socialIcons = { YouTube: 'youtube.svg', Twitch: 'twitch.svg', TikTok: 'tiktok.svg', Kick: 'kick.svg', X: 'x.svg', Reddit: 'reddit.svg' };
+      founderCard.querySelectorAll('.founder-follow nav a').forEach((link) => { const icon = socialIcons[link.textContent]; if (icon) { link.innerHTML = `<img src="assets/icons/${icon}" alt="${link.textContent}">`; link.setAttribute('aria-label', link.textContent); } });
+    }
+  </script>
+</body>
+
+</html>

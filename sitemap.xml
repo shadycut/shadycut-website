@@ -4,10 +4,13 @@
     <loc>https://shadycut.com/</loc>
   </url>
   <url>
-    <loc>https://shadycut.com/games/</loc>
+    <loc>https://shadycut.com/how-it-works/</loc>
   </url>
   <url>
-    <loc>https://shadycut.com/how-it-works/</loc>
+    <loc>https://shadycut.com/features/</loc>
+  </url>
+  <url>
+    <loc>https://shadycut.com/games/</loc>
   </url>
   <url>
     <loc>https://shadycut.com/news/</loc>
@@ -19,25 +22,27 @@
     <loc>https://shadycut.com/about/</loc>
   </url>
   <url>
-    <loc>https://shadycut.com/privacy.html</loc>
-  </url>
-  <url>
-    <loc>https://shadycut.com/terms.html</loc>
-  </url>
-  <url>
     <loc>https://shadycut.com/articles/why-highlight-generators-fail-at-long-form-gaming-content</loc>
-    <lastmod>2026-09-16</lastmod>
   </url>
   <url>
-    <loc>https://shadycut.com/updates/from-first-file-to-first-real-edit</loc>
-    <lastmod>2026-08-31</lastmod>
-  </url>
-  <url>
-    <loc>https://shadycut.com/case-studies/from-an-odette-pull-to-a-complete-story</loc>
-    <lastmod>2026-09-05</lastmod>
+    <loc>https://shadycut.com/articles/why-shadycut-stops-before-the-final-edit</loc>
   </url>
   <url>
     <loc>https://shadycut.com/case-studies/from-a-two-hour-stream-to-one-story-worth-watching</loc>
-    <lastmod>2026-08-02</lastmod>
+  </url>
+  <url>
+    <loc>https://shadycut.com/case-studies/from-an-odette-pull-to-a-complete-story</loc>
+  </url>
+  <url>
+    <loc>https://shadycut.com/privacy</loc>
+  </url>
+  <url>
+    <loc>https://shadycut.com/terms</loc>
+  </url>
+  <url>
+    <loc>https://shadycut.com/updates/from-first-file-to-first-real-edit</loc>
+  </url>
+  <url>
+    <loc>https://shadycut.com/updates/two-months-in-the-first-time-shadycut-felt-real/</loc>
   </url>
 </urlset>

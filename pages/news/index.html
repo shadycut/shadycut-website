@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="/">
+  <meta name="description" content="Follow ShadyCut as it evolves: product updates, articles, and real case studies built from long-form gaming content.">
+  <title>News — ShadyCut</title>
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="canonical" href="https://shadycut.com/news/">
+  <meta property="og:site_name" content="ShadyCut">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shadycut.com/news/">
+  <meta property="og:title" content="News — ShadyCut">
+  <meta property="og:description" content="Follow ShadyCut as it evolves: product updates, articles, and real case studies built from long-form gaming content.">
+  <meta property="og:image" content="https://shadycut.com/assets/social/shadycut-og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ShadyCut cover artwork">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="News — ShadyCut">
+  <meta name="twitter:description" content="Follow ShadyCut as it evolves: product updates, articles, and real case studies built from long-form gaming content.">
+  <meta name="twitter:image" content="https://shadycut.com/assets/social/shadycut-og.jpg">
+  <meta name="twitter:image:alt" content="ShadyCut cover artwork">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body class="content-page news-page">
+  <div data-component="header"></div>
+  <main id="top" class="news-main">
+    <header class="site-shell news-hero">
+      <p class="eyebrow">NEWS</p>
+      <h1>Stories, updates, and what we're building.</h1>
+      <p class="default-page-intro">Follow ShadyCut as it evolves — from product updates and articles to real case studies built from long-form gaming content.</p>
+    </header>
+
+    <section class="site-shell news-feed" aria-label="Latest stories and updates">
+      <div class="news-filters" role="group" aria-label="Filter news by content type" hidden>
+        <button type="button" data-filter="all" aria-pressed="true" aria-controls="news-grid">All</button>
+        <button type="button" data-filter="article" aria-pressed="false" aria-controls="news-grid">Articles</button>
+        <button type="button" data-filter="update" aria-pressed="false" aria-controls="news-grid">Updates</button>
+        <button type="button" data-filter="case-study" aria-pressed="false" aria-controls="news-grid">Case Studies</button>
+      </div>
+      <p class="news-filter-status" role="status" aria-live="polite" aria-atomic="true"></p>
+
+      <!-- Cards use the detail-page titles, trimmed ledes and publication dates.
+           Reading times follow article-meta.js: content-body words / 200, rounded up.
+           Case-study videos reuse the detail-page previews, with real video frames as posters. -->
+      <div id="news-grid" class="news-grid">
+        <article class="news-card" data-news-type="update" data-published="2026-09-18">
+          <a class="news-card-link" href="updates/two-months-in-the-first-time-shadycut-felt-real/" aria-labelledby="news-two-months-title">
+            <div class="news-card-media">
+              <picture>
+                <source srcset="updates/two-months-in-hero.avif" type="image/avif">
+                <source srcset="updates/two-months-in-hero.webp" type="image/webp">
+                <img src="updates/two-months-in-hero.jpg" alt="Creator at a video editing workstation with ShadyCut on the monitor" width="1292" height="714" decoding="async">
+              </picture>
+            </div>
+            <div class="news-card-body">
+              <span class="news-card-type">Update</span>
+              <h2 id="news-two-months-title">Two Months In: The First Time ShadyCut Felt Real</h2>
+              <p class="news-card-excerpt">Two months ago, ShadyCut was basically an idea I could not stop thinking about.</p>
+              <div class="news-card-footer">
+                <div class="news-card-meta">
+                  <time datetime="2026-09-18">Sep 18, 2026</time>
+                  <span data-news-reading-time>7 min read</span>
+                </div>
+                <span class="news-card-arrow" aria-hidden="true"></span>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="news-card" data-news-type="article" data-published="2026-09-17">
+          <a class="news-card-link" href="articles/why-shadycut-stops-before-the-final-edit" aria-labelledby="news-final-edit-title">
+            <div class="news-card-media">
+              <picture>
+                <source srcset="assets/articles/why-shadycut-stops-before-the-final-edit-hero.avif" type="image/avif">
+                <source srcset="assets/articles/why-shadycut-stops-before-the-final-edit-hero.webp" type="image/webp">
+                <img src="assets/articles/why-shadycut-stops-before-the-final-edit-hero.jpg" alt="Illustration of ShadyCut preparing a first cut while a creator adds their own finishing touches" width="1672" height="941" decoding="async">
+              </picture>
+            </div>
+            <div class="news-card-body">
+              <span class="news-card-type">Article</span>
+              <h2 id="news-final-edit-title">Why ShadyCut Stops Before the Final Edit</h2>
+              <p class="news-card-excerpt">AI can save hours of editing work. That does not mean it should make every creative decision for you.</p>
+              <div class="news-card-footer">
+                <div class="news-card-meta">
+                  <time datetime="2026-09-17">Sep 17, 2026</time>
+                  <span data-news-reading-time>6 min read</span>
+                </div>
+                <span class="news-card-arrow" aria-hidden="true"></span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="news-card" data-news-type="article" data-published="2026-09-16">
+          <a class="news-card-link" href="articles/why-highlight-generators-fail-at-long-form-gaming-content" aria-labelledby="news-article-title">
+            <div class="news-card-media">
+              <picture>
+                <source srcset="assets/articles/highlight-generators-hero.avif" type="image/avif">
+                <source srcset="assets/articles/highlight-generators-hero.webp" type="image/webp">
+                <img src="assets/articles/highlight-generators-hero.jpg" alt="A panoramic collage of gaming worlds" width="1672" height="941" decoding="async">
+              </picture>
+            </div>
+            <div class="news-card-body">
+              <span class="news-card-type">Article</span>
+              <h2 id="news-article-title">Why highlight generators fail at long-form gaming content</h2>
+              <p class="news-card-excerpt">Most highlight generators are good at spotting obvious moments: a clutch, a funny reaction, a big play, a sudden spike in action.</p>
+              <div class="news-card-footer">
+                <div class="news-card-meta">
+                  <time datetime="2026-09-16">Sep 16, 2026</time>
+                  <span data-news-reading-time>2 min read</span>
+                </div>
+                <span class="news-card-arrow" aria-hidden="true"></span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="news-card" data-news-type="case-study" data-published="2026-09-05">
+          <a class="news-card-link" href="case-studies/from-an-odette-pull-to-a-complete-story" aria-labelledby="news-odette-title">
+            <div class="news-card-media">
+              <video src="case-studies/260905-1cestream-genshin-odette/1ce-genshin-intro-web.mp4"
+                poster="assets/case-studies/1cestream-news-frame.jpg" muted loop playsinline preload="none"
+                aria-label="1ceStream Genshin Impact ShadyCut draft preview"></video>
+            </div>
+            <div class="news-card-body">
+              <span class="news-card-type">Case Study</span>
+              <h2 id="news-odette-title">From an Odette pull to a complete story.</h2>
+              <p class="news-card-excerpt">A long Genshin Impact stream gave ShadyCut something much harder than a simple highlight hunt: a character pull, personal stories, testing, mistakes, reactions, combat and a payoff spread across the session.</p>
+              <div class="news-card-footer">
+                <div class="news-card-meta">
+                  <time datetime="2026-09-05">Sep 5, 2026</time>
+                  <span>Genshin Impact</span>
+                </div>
+                <span class="news-card-arrow" aria-hidden="true"></span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="news-card" data-news-type="update" data-published="2026-08-31">
+          <a class="news-card-link" href="updates/from-first-file-to-first-real-edit" aria-labelledby="news-update-title">
+            <div class="news-card-media">
+              <picture>
+                <source srcset="updates/ShadyCut-Cover.avif" type="image/avif">
+                <source srcset="updates/ShadyCut-Cover.webp" type="image/webp">
+                <img src="updates/ShadyCut-Cover.jpg" alt="ShadyCut cover artwork" width="800" height="450" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="news-card-body">
+              <span class="news-card-type">Update</span>
+              <h2 id="news-update-title">From first file to first real edit</h2>
+              <p class="news-card-excerpt">On July 21, 2026, the first ShadyCut project file was created. The goal was to produce a real end-to-end editing output by the end of August.</p>
+              <div class="news-card-footer">
+                <div class="news-card-meta">
+                  <time datetime="2026-08-31">Aug 31, 2026</time>
+                  <span data-news-reading-time>4 min read</span>
+                </div>
+                <span class="news-card-arrow" aria-hidden="true"></span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="news-card" data-news-type="case-study" data-published="2026-08-02">
+          <a class="news-card-link" href="case-studies/from-a-two-hour-stream-to-one-story-worth-watching" aria-labelledby="news-chowds-title">
+            <div class="news-card-media">
+              <video src="case-studies/260802-chowds-ab-pilot/chowds-case-study-01-web.mp4"
+                poster="case-studies/260802-chowds-ab-pilot/chowds-case-study-01-poster.jpg" muted loop playsinline preload="none"
+                aria-label="Chowds Arena Breakout ShadyCut draft preview"></video>
+            </div>
+            <div class="news-card-body">
+              <span class="news-card-type">Case Study</span>
+              <h2 id="news-chowds-title">From a two-hour stream to one story worth watching.</h2>
+              <p class="news-card-excerpt">For Chowds, ShadyCut found a complete solo Arena Breakout arc across three raids and turned it into a structured 7.5-minute editing draft.</p>
+              <div class="news-card-footer">
+                <div class="news-card-meta">
+                  <time datetime="2026-08-02">Aug 2, 2026</time>
+                  <span>Arena Breakout</span>
+                </div>
+                <span class="news-card-arrow" aria-hidden="true"></span>
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div data-component="follow-the-journey"></div>
+  <div data-component="footer"></div>
+  <script src="components/loader.js"></script>
+  <script src="components/news.js"></script>
+</body>
+
+</html>

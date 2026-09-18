@@ -1,0 +1,9 @@
+{
+  "name": "shadycut-website",
+  "private": true,
+  "scripts": {
+    "routes": "node scripts/generate-routes.js",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "build": "npm run routes && npm run sitemap"
+  }
+}

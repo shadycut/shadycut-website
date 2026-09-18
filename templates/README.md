@@ -1,12 +1,12 @@
 # Article and Update detail templates
 
 This site uses static HTML. To create an article, copy `article.html` into
-`articles/<readable-slug>.html` and replace every `{{PLACEHOLDER}}` with the
+`pages/articles/<readable-slug>.html` and replace every `{{PLACEHOLDER}}` with the
 article’s content. Escape text and attribute values as HTML. The template’s
-`<base href="../">` resolves assets, shared components and homepage anchors
-from that directory; adjust it if nesting the page more deeply. These are
-internal filenames: the public URL is `/articles/<readable-slug>`, without
-`.html` or a trailing slash.
+`<base href="/">` resolves assets, shared components and homepage anchors
+from the site root, independently of source-file depth. These are
+internal filenames. New pages use `/articles/<readable-slug>/`; existing
+published URLs without a trailing slash remain unchanged.
 
 Set `{{PUBLISHED_ISO}}` to the publication date in `YYYY-MM-DD` format and
 `{{PUBLISHED_DATE}}` to its readable display value. The Published row reuses
@@ -19,13 +19,14 @@ excluded, and editing the body automatically updates the estimate on reload.
 The title and lede use the same alignment, widths and responsive settings
 as the Case Study hero.
 
-Add section headings and paragraphs inside `.content-body`. Copy
+Add section headings and paragraphs inside `.content-body.editorial-content`. Copy
 `content-checklist.html` and `content-quote.html` into the body as needed;
 these are reusable markup components with shared styles and no additional
 JavaScript. Give each checklist a unique ID, repeat its list items, and
-replace the quote and attribution. `.content-callout` supplies the shared
-panel appearance, while `.content-checklist` and `.content-quote` supply
-the component-specific layout. `.content-meta` is available for optional
+replace the quote and attribution. Keep `.content-callout` as the existing
+component hook; `.editorial-callout` supplies the shared editorial
+panel appearance, while `.content-checklist` and `.editorial-quote` supply
+the checklist and quote layout. `.content-meta` is available for optional
 definition-list metadata using the same markup as the case studies.
 
 Keep the existing header, footer, loader and `data-component="case-study-cta"`
@@ -33,8 +34,8 @@ slot. The CTA is loaded directly from `components/case-study-cta.html`.
 
 Hero images fill the content width and crop with `object-fit: cover`, reaching
 480px tall on desktop and at least 240px on small screens. The body starts
-48px below the image and has no bottom padding; the main supplies the
-spacing before the CTA. Set the image’s actual
+48px below the image (36px on mobile) and uses the same bottom spacing
+as Case Studies. Set the image’s actual
 width and height attributes and useful alt text; adjust `object-position`
 only if an image needs a different focal point.
 
@@ -45,15 +46,16 @@ Update the dimensions and alt text for the replacement.
 
 ## Updates
 
-To create an update, copy `update.html` into `updates/<readable-slug>.html`
+To create an update, copy `update.html` into `pages/updates/<readable-slug>.html`
 and replace its placeholders using the same rules as Article above. Each
 Update supplies its own hero image through `{{HERO_SRC}}`, dimensions and
 alt text, with the same sizing and cropping as Article.
 
 Update keeps the Article layout classes, reading-time script, reusable
 checklist/callout/quote markup and shared header, footer and CTA. Its
-`update-page` class selects the `UPDATE` label's page treatment: a
-left-aligned title and intro, with slightly bluer and softer pink accents.
+`update-page` class selects slightly bluer and softer pink background accents.
+All three News detail types (Article, Update and Case Study) keep the label,
+title and intro centered on desktop and mobile.
 The background uses Article's existing two radial glows, preserving their
 positions, opacity and size. The current Article has no separate lightning
 asset or layer; Update does not introduce a new background composition.
@@ -64,25 +66,55 @@ uses `updates/ShadyCut-Cover.jpg`, not a product screenshot.
 Replace the page's image source when final artwork is ready,
 and update the dimensions and alt text.
 
+## Shared editorial presentation
+
+All public Articles, Case Studies and Updates use `.editorial-content` on
+their existing `.content-body` wrapper. The shared rules live only in
+`assets/css/styles.css`: an 800px reading width, soft gray 18px body copy
+(17px on mobile), 1.7 line height, consistent headings, compact lists,
+cyan markers, underlined yellow-to-cyan links and visible keyboard focus.
+Major body H2 sections receive a subtle divider; H3 headings stay subordinate.
+
+Keep callouts special: add `.editorial-callout` to existing semantic notes,
+checklists and summary boxes, and `.editorial-quote` to existing quote
+containers. A plain `blockquote` inside the editorial wrapper also receives
+the shared quote treatment. Preserve the blockquote and any figcaption.
+Use `.editorial-media` alongside the existing featured-media class for the
+shared image/video frame; inline images and videos inherit matching borders
+and radii. Existing hero dimensions, crops and wide download sections remain.
+These opt-in rules do not apply to product pages, legal pages or standalone
+downloadable Story/Director reports.
+
 ## Public content URLs on Cloudflare Pages
 
-Articles, Updates and Case Studies all use `/<content-type>/<slug>` public
-URLs, without `.html`, a date-prefixed folder, or a trailing slash. Keep
-canonicals, `og:url`, JSON-LD page IDs, internal links, News cards and
-`sitemap.xml` aligned with those public URLs, not internal filenames.
+Existing Articles, Updates and Case Studies use `/<content-type>/<slug>` public
+URLs. New pages use `/<content-type>/<slug>/`. Neither format includes
+`.html` or a date-prefixed folder. Keep
+canonicals, `og:url`, JSON-LD page IDs, internal links and News cards
+aligned with those public URLs, not internal filenames. The sitemap is generated
+automatically as described below.
 
-Cloudflare Pages serves `articles/<slug>.html` and `updates/<slug>.html`
-at `/articles/<slug>` and `/updates/<slug>` automatically. The root
-`_redirects` file adds explicit permanent (301) redirects for published
-`.html` URLs and trailing-slash variants. Add the corresponding rules
-when publishing another Article or Update.
+Public page sources live under `pages/`; only the homepage stays at
+`index.html` in the repository root. Every public site page loads
+`/assets/css/styles.css`. Games and Features rules are scoped to their
+page bodies, and responsive rules keep their original cascade order.
+Templates use this same stylesheet and root-relative base.
 
-Case Study HTML, videos and artifacts stay together under
-`case-studies/<YYMMDD-case-study-folder>/`. Each clean `/case-studies/<slug>`
-URL has an exact 200 proxy rule in `_redirects` pointing to its internal
-extensionless route; Pages resolves that route to the existing `.html`
-file. Do not proxy to the `.html` URL directly: Pages' automatic extension
-redirect would expose the dated route and create a redirect loop.
+The root `_redirects` file maps existing public URLs to source locations
+with exact 200 proxies. Directory pages such as `/games/` target
+`/pages/games/`; Articles, Updates and Case Studies target their
+extensionless routes under `/pages/articles/`, `/pages/updates/` and
+`/pages/case-studies/`. Pages resolves these targets to the corresponding
+HTML files. Do not proxy to `.html` or `index.html` directly: Pages'
+automatic HTML normalization could expose `/pages/` in a browser URL.
+The build generates proxies and normalization aliases for new detail pages;
+the existing manually maintained rules remain unchanged.
+
+Case Study page HTML lives at `pages/case-studies/<slug>.html`. Videos,
+posters and downloadable reports retain their existing locations under
+`case-studies/<YYMMDD-case-study-folder>/`. These standalone reports are
+downloadable product outputs, not site-layout pages; their content and
+embedded report styling remain untouched.
 Exact 301 rules redirect old dated page URLs (with or without
 `.html`) and earlier aliases to the clean URL. Cloudflare applies only
 the first matching rule, so a clean page proxy does not follow the old
@@ -97,10 +129,65 @@ Do not redirect whole Case Study folders or move their downloads:
 direct links such as
 `/case-studies/260802-chowds-ab-pilot/story-blueprint.html` and
 `/case-studies/260905-1cestream-genshin-odette/director_plan.html`
-remain available. Case Studies currently use `<base href="../../">`,
-which resolves shared assets to the site root both at the internal
-location and at the clean public URL.
+remain available. Site pages use `<base href="/">`, which resolves
+shared assets and components to the site root at the clean public URL.
+
+Directory and legal-page aliases explicitly preserve Cloudflare's
+existing 308 normalization. A final `/pages/*` rule sends direct source
+requests back to public paths; it does not run recursively when a 200
+proxy serves a public page. Keep it after the exact rules. Canonicals,
+social metadata and sitemap URLs must never use `/pages/`.
+
+There are no separate Case Studies or Updates index pages in the current
+site. Keep the News hub and its existing filters; this source migration
+does not create new archive pages or change the existing root fallback.
 
 Deploy the repository's static files with `_redirects` included in the
 Cloudflare Pages output root. A plain static-file server does not apply
 these rules; use `npx wrangler pages dev .` for local routing checks.
+
+## Automatic routes and sitemap generation
+
+Run `npm run build` before publishing the static repository root. It runs
+`npm run routes` followed by `npm run sitemap`, with no dependencies
+or installation required. In Cloudflare Pages, use `npm run build` as the
+build command and keep the existing repository-root output directory.
+There is no checked-in deploy command; direct upload workflows must run
+this build command before uploading. Generation does not deploy anything.
+
+Both generators share content discovery and exclusions in `scripts/public-pages.js`.
+They discover public HTML under `pages/`, including flat detail
+files and `<slug>/index.html` pages in `articles`, `case-studies`, and
+`updates`. Existing exact 200 proxies determine public URLs. Without a
+proxy, both layouts map to `/<content-type>/<slug>/`. Adding a published
+source file and running `npm run build` creates its public route and sitemap
+entry automatically. Include a canonical URL matching the public URL in
+the source HTML. Neither generator publishes `/pages/` paths or alias URLs
+as canonical URLs.
+
+`scripts/generate-routes.js` maintains only the marked
+`AUTO-GENERATED CONTENT ROUTES` section in `_redirects`. Everything outside
+it, including legacy redirects and existing static/content proxies, is
+preserved. The block is initially inserted before existing rules to avoid
+catchall shadowing. Generated 200 proxies target the native clean source
+route (extensionless for flat files, directory paths for `index.html`)
+to prevent Cloudflare's HTML normalization from exposing `/pages/`.
+Generated public aliases normalize to the same trailing-slash URL.
+
+Do not edit generated rules by hand. Removing or marking a generated page
+non-indexable removes its generated rules on the next build. Two source
+layouts with the same content type and slug fail clearly, as do exact
+manual-rule conflicts or rules before the block that shadow generated URLs.
+Existing manual routes are retained even when their source is non-indexable;
+the sitemap still excludes that page. Content-type `index.html` files are
+not automatically treated as landing pages.
+
+For unpublished pages, use a robots `noindex` meta tag, an explicit
+`<meta name="draft" content="true">`, or a `draft`/`drafts` directory or
+`draft-` filename. Unfilled template copies and meta-refresh redirect pages
+are excluded too. The six required public hubs must exist and be indexable
+or generation fails. URLs are deduplicated and output is deterministic.
+
+No `lastmod`, `changefreq`, or `priority` is generated: current content
+provides publication dates, not verified modification dates. Do not manually
+edit `sitemap.xml`; regenerate it after adding or removing public pages.
