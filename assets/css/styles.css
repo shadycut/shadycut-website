@@ -949,9 +949,11 @@ footer {
 
 .real-demo-section .case-study {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: 0;
+  max-width: 1040px;
+  margin-inline: auto;
   overflow: hidden;
   border: 1px solid rgba(90, 100, 145, .44);
   border-radius: 4px;
@@ -971,7 +973,8 @@ footer {
   background: #0b0d18;
 }
 
-.real-demo-section .case-media video {
+.real-demo-section .case-media video,
+.real-demo-section .case-media img {
   position: absolute;
   inset: 0;
   display: block;
@@ -980,12 +983,21 @@ footer {
   object-fit: cover;
 }
 
+.real-demo-section .case-media iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .real-demo-section .case-content {
   min-width: 0;
   padding: 32px;
 }
 
-.real-demo-section .case-content h3 {
+.real-demo-section .case-content :is(h2, h3) {
   margin: 0;
   font-size: clamp(28px, 2.8vw, 36px);
   line-height: 1.08;
@@ -999,6 +1011,10 @@ footer {
   line-height: 1.6;
 }
 
+.real-demo-section .case-content > .eyebrow {
+  color: var(--yellow);
+}
+
 .real-demo-section .case-content .news-card-meta {
   margin: 0 0 26px;
 }
@@ -1006,6 +1022,7 @@ footer {
 @media (max-width:900px) {
   .real-demo-section .case-study {
     grid-template-columns: 1fr;
+    max-width: 640px;
   }
 
   .real-demo-section .case-media {
@@ -1216,7 +1233,6 @@ footer {
 
 .case-study-cta.discord-questions-cta {
   padding: 48px 0;
-  background: #070812;
 }
 
 .case-study-cta.discord-questions-cta h2 {
@@ -2663,6 +2679,25 @@ picture {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.update-page .update-video {
+  aspect-ratio: 16 / 9;
+  margin: 32px 0;
+  background: #080a14;
+}
+
+.update-page .update-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .update-page .content-hero h1 {
+    font-size: clamp(36px, 10vw, 62px);
+  }
 }
 
 
