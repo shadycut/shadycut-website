@@ -3587,7 +3587,8 @@ picture {
 
 .how-it-works-page .phase-direct .phase-illustration,
 .how-it-works-page .phase-direct .phase-illustration img,
-.how-it-works-page .phase-timeline .phase-illustration {
+.how-it-works-page .phase-timeline .phase-illustration,
+.how-it-works-page .phase-timeline .phase-illustration img {
   aspect-ratio: auto;
 }
 
@@ -3597,13 +3598,16 @@ picture {
   justify-self: center;
 }
 
-.how-it-works-page .phase-direct .phase-illustration img,
-.how-it-works-page .phase-timeline .phase-illustration img {
-  height: auto;
+.how-it-works-page .phase-direct .phase-illustration picture,
+.how-it-works-page .phase-timeline .phase-illustration picture {
+  display: block;
+  width: 100%;
 }
 
+.how-it-works-page .phase-direct .phase-illustration img,
 .how-it-works-page .phase-timeline .phase-illustration img {
-  aspect-ratio: 1122 / 1402;
+  position: static;
+  height: auto;
 }
 
 .how-it-works-page .workflow-phase .content-checklist li {
