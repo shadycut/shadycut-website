@@ -2681,6 +2681,11 @@ picture {
   object-position: center;
 }
 
+.article-featured-media-full,
+.article-featured-media-full img {
+  height: auto;
+}
+
 .update-page .update-video {
   aspect-ratio: 16 / 9;
   margin: 32px 0;
