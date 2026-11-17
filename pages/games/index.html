@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <base href="/">
-  <meta name="description" content="Explore the games ShadyCut understands: ARC Raiders, Arena Breakout, Genshin Impact, and Rust Mobile, each with its own game knowledge profile.">
-  <title>Games — ShadyCut</title>
+  <meta name="description" content="Explore ShadyCut game support for AI gaming video editing, from supported Arena Breakout to partially supported and experimental games.">
+  <title>Supported Games &amp; Support Levels — ShadyCut</title>
   <link rel="icon" type="image/png" href="assets/logo/favicon.png">
   <link rel="canonical" href="https://shadycut.com/games/">
   <meta name="hero-image" content="games/arc_raiders_image.jpg">
@@ -15,8 +15,8 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shadycut.com/games/">
-  <meta property="og:title" content="Games — ShadyCut">
-  <meta property="og:description" content="Explore the games ShadyCut understands: ARC Raiders, Arena Breakout, Genshin Impact, and Rust Mobile, each with its own game knowledge profile.">
+  <meta property="og:title" content="Supported Games &amp; Support Levels — ShadyCut">
+  <meta property="og:description" content="Explore ShadyCut game support for AI gaming video editing, from supported Arena Breakout to partially supported and experimental games.">
   <!-- BEGIN AUTO-GENERATED SOCIAL IMAGE -->
   <meta property="og:image" content="https://shadycut.com/games/arc_raiders_image.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -27,8 +27,8 @@
   <meta name="twitter:image:alt" content="ARC Raiders game artwork">
   <!-- END AUTO-GENERATED SOCIAL IMAGE -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Games — ShadyCut">
-  <meta name="twitter:description" content="Explore the games ShadyCut understands: ARC Raiders, Arena Breakout, Genshin Impact, and Rust Mobile, each with its own game knowledge profile.">
+  <meta name="twitter:title" content="Supported Games &amp; Support Levels — ShadyCut">
+  <meta name="twitter:description" content="Explore ShadyCut game support for AI gaming video editing, from supported Arena Breakout to partially supported and experimental games.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
@@ -87,97 +87,118 @@
   <main id="top" class="games-main">
     <header class="site-shell games-hero">
       <p class="eyebrow">GAMES</p>
-      <h1>Games ShadyCut understands.</h1>
-      <p class="default-page-intro">Each supported game has its own knowledge profile for terminology, locations, items, mechanics, aliases, and game-specific context.</p>
+      <h1>Game support, at a glance.</h1>
+      <p class="default-page-intro">ShadyCut uses game-specific knowledge to help understand gaming streams and propose a story-first edit. Support develops game by game: these tiers show what is intended for real use, what is still being validated, and what is in early testing.</p>
     </header>
 
-    <section class="site-shell games-support" aria-labelledby="games-support-title">
-      <h2 id="games-support-title">What does “supported” mean?</h2>
-      <p>ShadyCut has game-specific knowledge for supported titles, helping it understand the names, locations, items, objectives and other game context that appear throughout a session.</p>
+    <!-- Platforms and Added dates come from each Studio game's game_info.json.
+         Added uses the UTC calendar date of created_at, not the media file date. -->
+    <section class="site-shell games-tier games-tier-supported" aria-labelledby="games-supported-title">
+      <header class="games-tier-heading">
+        <h2 id="games-supported-title">Supported Games</h2>
+        <p>ShadyCut has a dedicated Game Profile for this game. The current Analysis and Understanding pipeline is intended for real use with it.</p>
+      </header>
+      <div class="games-grid">
+        <article class="game-card">
+          <div class="game-card-media">
+            <picture>
+              <source srcset="games/arena_breakout_image.avif" type="image/avif">
+              <source srcset="games/arena_breakout_image.webp" type="image/webp">
+              <img src="games/arena_breakout_image.jpg" alt="Arena Breakout game artwork" width="800" height="452" decoding="async">
+            </picture>
+            <video src="games/arena_breakout_video-web.mp4" poster="games/arena_breakout_image.jpg" muted autoplay loop playsinline preload="none" width="854" height="480" aria-hidden="true" tabindex="-1"></video>
+          </div>
+          <div class="game-card-body">
+            <p class="game-status">Supported</p>
+            <h3>Arena Breakout</h3>
+            <p class="game-platforms"><span>Platforms:</span> Android, iOS</p>
+            <p class="game-added">Added <time datetime="2026-09-04">Sep 4, 2026</time></p>
+            <div class="game-knowledge">
+              <p class="game-knowledge-label">GAME KNOWLEDGE</p>
+              <p class="game-knowledge-list">Maps &amp; raid locations · Weapons &amp; equipment · Loot &amp; economy · Extraction · Combat &amp; armor systems</p>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section class="site-shell games-grid" aria-label="Supported games">
-      <!-- Platforms and Added dates come from each Studio game's game_info.json.
-           Added uses the UTC calendar date of created_at, not the media file date. -->
-      <article class="game-card">
-        <div class="game-card-media">
-          <picture>
-            <source srcset="games/arc_raiders_image.avif" type="image/avif">
-            <source srcset="games/arc_raiders_image.webp" type="image/webp">
-            <img src="games/arc_raiders_image.jpg" alt="ARC Raiders game artwork" width="616" height="353" decoding="async">
-          </picture>
-          <video src="games/arc_raiders_video-web.mp4" poster="games/arc_raiders_image.jpg" muted autoplay loop playsinline preload="none" width="854" height="480" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <div class="game-card-body">
-          <h2>ARC Raiders</h2>
-          <p class="game-platforms"><span>Platforms:</span> PC, PlayStation 5, Xbox Series X|S</p>
-          <p class="game-added">Added <time datetime="2026-08-09">Aug 9, 2026</time></p>
-          <div class="game-knowledge">
-            <p class="game-knowledge-label">GAME KNOWLEDGE</p>
-            <p class="game-knowledge-list">Maps &amp; locations · ARC enemies · Items &amp; economy · Objectives &amp; progression · Game systems</p>
+    <section class="site-shell games-tier games-tier-partial" aria-labelledby="games-partial-title">
+      <header class="games-tier-heading">
+        <h2 id="games-partial-title">Partially Supported Games</h2>
+        <p>Some game-specific understanding exists, but coverage is incomplete or still being validated. Results may vary by stream or session.</p>
+      </header>
+      <div class="games-grid">
+        <article class="game-card">
+          <div class="game-card-media">
+            <picture>
+              <source srcset="games/arc_raiders_image.avif" type="image/avif">
+              <source srcset="games/arc_raiders_image.webp" type="image/webp">
+              <img src="games/arc_raiders_image.jpg" alt="ARC Raiders game artwork" width="616" height="353" loading="lazy" decoding="async">
+            </picture>
+            <video src="games/arc_raiders_video-web.mp4" poster="games/arc_raiders_image.jpg" muted autoplay loop playsinline preload="none" width="854" height="480" aria-hidden="true" tabindex="-1"></video>
           </div>
-        </div>
-      </article>
+          <div class="game-card-body">
+            <p class="game-status">Partially supported</p>
+            <h3>ARC Raiders</h3>
+            <p class="game-platforms"><span>Platforms:</span> PC, PlayStation 5, Xbox Series X|S</p>
+            <p class="game-added">Added <time datetime="2026-08-09">Aug 9, 2026</time></p>
+            <div class="game-knowledge">
+              <p class="game-knowledge-label">PARTIAL GAME KNOWLEDGE</p>
+              <p class="game-knowledge-list">Maps &amp; locations · ARC enemies · Items &amp; economy · Objectives &amp; progression · Game systems</p>
+            </div>
+          </div>
+        </article>
 
-      <article class="game-card">
-        <div class="game-card-media">
-          <picture>
-            <source srcset="games/arena_breakout_image.avif" type="image/avif">
-            <source srcset="games/arena_breakout_image.webp" type="image/webp">
-            <img src="games/arena_breakout_image.jpg" alt="Arena Breakout game artwork" width="800" height="452" loading="lazy" decoding="async">
-          </picture>
-          <video src="games/arena_breakout_video-web.mp4" poster="games/arena_breakout_image.jpg" muted autoplay loop playsinline preload="none" width="854" height="480" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <div class="game-card-body">
-          <h2>Arena Breakout</h2>
-          <p class="game-platforms"><span>Platforms:</span> Android, iOS</p>
-          <p class="game-added">Added <time datetime="2026-09-04">Sep 4, 2026</time></p>
-          <div class="game-knowledge">
-            <p class="game-knowledge-label">GAME KNOWLEDGE</p>
-            <p class="game-knowledge-list">Maps &amp; raid locations · Weapons &amp; equipment · Loot &amp; economy · Extraction · Combat &amp; armor systems</p>
+        <article class="game-card">
+          <div class="game-card-media">
+            <picture>
+              <source srcset="games/rust_mobile_image.avif" type="image/avif">
+              <source srcset="games/rust_mobile_image.webp" type="image/webp">
+              <img src="games/rust_mobile_image.jpg" alt="Rust Mobile game artwork" width="796" height="448" loading="lazy" decoding="async">
+            </picture>
+            <video src="games/rust_mobile_video-web.mp4" poster="games/rust_mobile_image.jpg" muted autoplay loop playsinline preload="none" width="854" height="480" aria-hidden="true" tabindex="-1"></video>
           </div>
-        </div>
-      </article>
+          <div class="game-card-body">
+            <p class="game-status">Partially supported</p>
+            <h3>Rust</h3>
+            <p class="game-platforms"><span>Platforms:</span> Android, iOS (Rust Mobile)</p>
+            <p class="game-added">Added <time datetime="2026-09-04">Sep 4, 2026</time></p>
+            <div class="game-knowledge">
+              <p class="game-knowledge-label">PARTIAL GAME KNOWLEDGE</p>
+              <p class="game-knowledge-list">Monuments &amp; locations · Resources &amp; economy · Weapons &amp; equipment · Survival systems · Progression</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      <article class="game-card">
-        <div class="game-card-media">
-          <picture>
-            <source srcset="games/genshin_impact_image.avif" type="image/avif">
-            <source srcset="games/genshin_impact_image.webp" type="image/webp">
-            <img src="games/genshin_impact_image.jpg" alt="Genshin Impact game artwork" width="1920" height="1080" loading="lazy" decoding="async">
-          </picture>
-          <video src="games/genshin_impact_video-web.mp4" poster="games/genshin_impact_image.jpg" muted autoplay loop playsinline preload="none" width="854" height="480" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <div class="game-card-body">
-          <h2>Genshin Impact</h2>
-          <p class="game-platforms"><span>Platforms:</span> PC, PlayStation 5, Xbox Series X|S, iOS, Android</p>
-          <p class="game-added">Added <time datetime="2026-08-18">Aug 18, 2026</time></p>
-          <div class="game-knowledge">
-            <p class="game-knowledge-label">GAME KNOWLEDGE</p>
-            <p class="game-knowledge-list">Characters · World &amp; locations · Items &amp; resources · Quests &amp; progression · Wishes &amp; character pulls</p>
+    <section class="site-shell games-tier games-tier-experimental" aria-labelledby="games-experimental-title">
+      <header class="games-tier-heading">
+        <h2 id="games-experimental-title">Experimental</h2>
+        <p>Early testing only. Game-specific support is incomplete and may change significantly.</p>
+      </header>
+      <div class="games-grid">
+        <article class="game-card">
+          <div class="game-card-media">
+            <picture>
+              <source srcset="games/genshin_impact_image.avif" type="image/avif">
+              <source srcset="games/genshin_impact_image.webp" type="image/webp">
+              <img src="games/genshin_impact_image.jpg" alt="Genshin Impact game artwork" width="1920" height="1080" loading="lazy" decoding="async">
+            </picture>
+            <video src="games/genshin_impact_video-web.mp4" poster="games/genshin_impact_image.jpg" muted autoplay loop playsinline preload="none" width="854" height="480" aria-hidden="true" tabindex="-1"></video>
           </div>
-        </div>
-      </article>
-
-      <article class="game-card">
-        <div class="game-card-media">
-          <picture>
-            <source srcset="games/rust_mobile_image.avif" type="image/avif">
-            <source srcset="games/rust_mobile_image.webp" type="image/webp">
-            <img src="games/rust_mobile_image.jpg" alt="Rust Mobile game artwork" width="796" height="448" loading="lazy" decoding="async">
-          </picture>
-          <video src="games/rust_mobile_video-web.mp4" poster="games/rust_mobile_image.jpg" muted autoplay loop playsinline preload="none" width="854" height="480" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <div class="game-card-body">
-          <h2>Rust Mobile</h2>
-          <p class="game-platforms"><span>Platforms:</span> Android, iOS</p>
-          <p class="game-added">Added <time datetime="2026-09-04">Sep 4, 2026</time></p>
-          <div class="game-knowledge">
-            <p class="game-knowledge-label">GAME KNOWLEDGE</p>
-            <p class="game-knowledge-list">Monuments &amp; locations · Resources &amp; economy · Weapons &amp; equipment · Survival systems · Progression</p>
+          <div class="game-card-body">
+            <p class="game-status">Experimental</p>
+            <h3>Genshin Impact</h3>
+            <p class="game-platforms"><span>Platforms:</span> PC, PlayStation 5, Xbox Series X|S, iOS, Android</p>
+            <p class="game-added">Added <time datetime="2026-08-18">Aug 18, 2026</time></p>
+            <div class="game-knowledge">
+              <p class="game-knowledge-label">EXPERIMENTAL GAME KNOWLEDGE</p>
+              <p class="game-knowledge-list">Characters · World &amp; locations · Items &amp; resources · Quests &amp; progression · Wishes &amp; character pulls</p>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </section>
   </main>
   <div data-component="case-study-cta"></div>
